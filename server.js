@@ -1,11 +1,12 @@
 const express = require('express')
 const blogRouter = require('./routes/blogRouter')
+const userRouter = require('./routes/userRouter')
 const app = express()
 const portNum = process.env.PORT || 3000
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
-app.use('/api', blogRouter)
+app.use('/api', [blogRouter, userRouter])
 
 app.get('/', (request, response) => response.send('Server Listening...'))
 

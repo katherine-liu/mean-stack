@@ -1,16 +1,23 @@
+###### Node.js & Token
+`npm install bcrypt --save`
+
+
 ###### MongoDB
 1. Create a container called mongo, the mirror is mongo as well.__
 If there is no mirror, docker will download the mirror for you on your machine.__
-`docker run -d --name mongo mongo`
+`docker run -d -p 28000:27017 --name mongo mongo`
 2. Go into the container__
 `docker exec -it mongo bash`
 
-
 ###### Mongo Shell
-1. Go into the mongo DB__
+1. Go into the mongo shell__
 `mongo`
 2. Switch to specific DB. If the DB doesn't exist, it will create for you.__
 `use {DB name}`
+3. Check current DB__
+`db`
+4. show all the databases__
+`show db`
 
 ###### Connect to MongoDB
 1. From MongoDB official website:
@@ -85,16 +92,16 @@ This will return the number of the item.
 `db.movie.find({ year: "1994" }, { title: 1, year: 1, _id: 0}).limit(3).skip(10)`
 
 `db.movie.find({ year: "1994" }, { title: 1, year: 1, _id: 0}).sort({ rating.average: -1})`
-This will display the sorted list, sort by rating.average
+This will display the sorted list, sort by rating.average__
 
-To find the rating.average > 9.5
+To find the rating.average > 9.5__
 `db.movies.find({ rating.average: { $gt: 9.5 } }, { title: 1, rating.average: 1, _id: 0})`
 
-To find the rating.average < 9.5
+To find the rating.average < 9.5__
 `db.movies.find({ rating.average: { $lt: 9.5 } }, { title: 1, rating.average: 1, _id: 0})`
 
-$in
+$in__
 `db.movies.find({ genres: { $in: ["犯罪", "剧情"] }}, { title: 1, genres: 1, _id: 0})`
 
-$nin
+$nin__
 `db.movies.find({ genres: { $nin: ["犯罪", "剧情"] }}, { title: 1, genres: 1, _id: 0})`

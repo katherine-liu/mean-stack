@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const blogCtrl = require('../controllers/blogCtrl')
+const BlogCtrl = require('../controllers/blogCtrl')
 
 router.route('/blogs')
-.get(blogCtrl.index)
-.post(blogCtrl.store)
+.get(BlogCtrl.index)
+.post(BlogCtrl.store)
 
 router.route('/blogs/:id')
-.get(blogCtrl.show)
-.patch(blogCtrl.update)
-.delete(blogCtrl.destroy)
+.get(BlogCtrl.show)
+.patch(BlogCtrl.update)
+.delete(BlogCtrl.destroy)
 
 module.exports = router
