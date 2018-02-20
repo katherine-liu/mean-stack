@@ -4,7 +4,7 @@
   "description": "1. Create a container called mongo, the mirror is mongo as well.__ If there is no mirror, docker will download the mirror for you on your machine.__ `docker run -d --name mongo mongo` 2. Go into the container__ `docker exec -it mongo bash`",
   "main": "index.js",
   "scripts": {
-    "server": "./node_modules/.bin/nodemon -exec babel-node server.js",
+    "start": "./node_modules/.bin/nodemon -exec babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
